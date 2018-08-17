@@ -1,0 +1,11 @@
+map 1 - home island
+	open on a dock returning from a journey. no immediate background.
+	opening message about how you have been away and to go visit family
+	there will be various pick up around the map
+	maybe-as you walk around the level, other people behave odd when they see you. they knew something was wrong with your family
+	when you get to the bottom of the map(your house) you see that your family has been killed and the house has been burned down
+	investigate the area, find a message written in blood, saying why this has happened and to return to the main land
+	return to the dock and go to the main land
+	
+map2 - main land
+	

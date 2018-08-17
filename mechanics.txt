@@ -1,0 +1,14 @@
+FIGHTS
+loads with the appropriate number of enemies based on surrounding when entering a fight (max 3)
+1. choose an action for each opponent, cycling left to right 
+2. for each opponent, they choose an action. if they are low on health, higher chance of selecting heal
+3. player and npc actions alternate until all actions have been completed
+4. repeat steps 1-3 until all npcs are dead or player is dead
+
+possible actions:
+-attack - deal 30 damage, if armour is added, each attack will affect different armour more
+	-slash - deal 35 damage to light armour, 10 to heavy armour
+	-stab - deal 25 to heavy armour, 15 to light armour
+-heal - gain 20 life, npc more likely to choose when life is below 40
+-run away - has a chance of failing, not selectable for npc
+-others to be added

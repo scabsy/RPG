@@ -1,0 +1,923 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc_devilsquid.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<div class="DS-logo"></div>
+<br/>
+<h1>util</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/Arc.html">Arc</a></li>
+  <li><a href="../modules/Bezier.html">Bezier</a></li>
+  <li><a href="../modules/BezierPath.html">BezierPath</a></li>
+  <li><a href="../modules/BezierPathEditor.html">BezierPathEditor</a></li>
+  <li><a href="../modules/ControlPoint.html">ControlPoint</a></li>
+  <li><a href="../modules/Handle.html">Handle</a></li>
+  <li><a href="../modules/BitmapFontButton.html">BitmapFontButton</a></li>
+  <li><a href="../modules/camera.html">camera</a></li>
+  <li><a href="../modules/cameralayer.html">cameralayer</a></li>
+  <li><a href="../modules/Device.html">Device</a></li>
+  <li><a href="../modules/FPS.html">FPS</a></li>
+  <li><a href="../modules/imageblur.html">imageblur</a></li>
+  <li><a href="../modules/log.html">log</a></li>
+  <li><a href="../modules/object.html">object</a></li>
+  <li><a href="../modules/particledesignerplus.html">particledesignerplus</a></li>
+  <li><a href="../modules/quadtree.html">quadtree</a></li>
+  <li><a href="../modules/touchzone.html">touchzone</a></li>
+  <li><strong>Vector2D</strong></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>Vector2D</code></h1>
+<p>vector2d.lua
+ A 2D vector module</p>
+<p>
+</p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Copyright</strong>: DevilSquid, René Aye 2016</li>
+        <li><strong>License</strong>: MIT</li>
+        <li><strong>Author</strong>: René Aye</li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#new">new (x, y)</a></td>
+	<td class="summary">Creates a Vector2D object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#copy">copy ()</a></td>
+	<td class="summary">Creates a copy of a Vector2D object</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#magnitude">magnitude ()</a></td>
+	<td class="summary">Calculates the magnitude of a Vector2D object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#normalize">normalize ()</a></td>
+	<td class="summary">Normalizes a Vector2D object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#limit">limit (l)</a></td>
+	<td class="summary">Limits the Vector2D.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#equals">equals (vec)</a></td>
+	<td class="summary">Check if two vectors are equal.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#add">add (vec)</a></td>
+	<td class="summary">Adds two vectors.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#sub">sub (vec)</a></td>
+	<td class="summary">Subtracts two vectors.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mult">mult (s)</a></td>
+	<td class="summary">Multipplies the vector with a value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#div">div (s)</a></td>
+	<td class="summary">Divides the vector with a value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#dot">dot (vec)</a></td>
+	<td class="summary">Creates a dot product of two vectors</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#dist">dist (vec)</a></td>
+	<td class="summary">Calcuates the distance between two vectors</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#NormalA">NormalA (vec)</a></td>
+	<td class="summary">Vector2D:NormalA(vec)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#NormalB">NormalB (vec)</a></td>
+	<td class="summary">Vector2D:NormalB(vec)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Normalize">Normalize (vec)</a></td>
+	<td class="summary">Creates a normalized Vector2D of a different Vector2D object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Limit">Limit (vec, l)</a></td>
+	<td class="summary">Limits a Vector2D object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#LimitMagnitude">LimitMagnitude (vec, max)</a></td>
+	<td class="summary">Vector2D:LimitMagnitude(vec, max)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Add">Add (vec1, vec2)</a></td>
+	<td class="summary">Adds two Vector2D objects.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Sub">Sub (vec1, vec2)</a></td>
+	<td class="summary">Subtracts two Vector2D objects.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Mult">Mult (vec, s)</a></td>
+	<td class="summary">Multiplies a Vector2D object with a number.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Div">Div (vec, s)</a></td>
+	<td class="summary">Divides a Vector2D object by a number.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#DistManhattan">DistManhattan (vec1, vec2)</a></td>
+	<td class="summary">Manhattan Distance Calculation.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Dist">Dist (vec1, vec2)</a></td>
+	<td class="summary">Classic Euclidian Distance Calculation.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Draw">Draw ([radius])</a></td>
+	<td class="summary">Draws a vector position.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "new"></a>
+    <strong>new (x, y)</strong>
+    </dt>
+    <dd>
+    Creates a Vector2D object.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+           x vector value
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+           y vector value
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        a new Vector2D object
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="keyword">local</span> vec1 = Vector2D:new( <span class="number">12</span>, <span class="number">36.2</span> )</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "copy"></a>
+    <strong>copy ()</strong>
+    </dt>
+    <dd>
+    Creates a copy of a Vector2D object
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        a new Vector2D object
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="keyword">local</span> vec2 = vec1:copy()</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "magnitude"></a>
+    <strong>magnitude ()</strong>
+    </dt>
+    <dd>
+    Calculates the magnitude of a Vector2D object. </p>
+
+<p> This coresponds to the distance from coordinates 0,0
+ to the position of this vector
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        the magnitude as a number
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="keyword">local</span> mag = vec1:magnitude()</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "normalize"></a>
+    <strong>normalize ()</strong>
+    </dt>
+    <dd>
+    Normalizes a Vector2D object.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        nothing
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ vec1:normalize()</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "limit"></a>
+    <strong>limit (l)</strong>
+    </dt>
+    <dd>
+    Limits the Vector2D. </p>
+
+<p> Limits the x and y values of a Vector2D object to a maximum
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">l</span>
+            <span class="types"><span class="type">number</span></span>
+         maximum value of the x and y
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        nothing
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="comment">-- if x or y values are bigger than 15 then limit them to 15
+</span> vec1:limit( <span class="number">15</span> )</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "equals"></a>
+    <strong>equals (vec)</strong>
+    </dt>
+    <dd>
+    Check if two vectors are equal.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vec</span>
+         a Vecor2D object to compare to
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+        true if both vectors are the same</li>
+        <li>
+        false if both vectors are different</li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="keyword">local</span> isEqual = vec1:equals( vec2 )</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "add"></a>
+    <strong>add (vec)</strong>
+    </dt>
+    <dd>
+    Adds two vectors.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vec</span>
+         a Vector2D object to add
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        nothing
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="comment">-- vec2 gets added to vec1
+</span> vec1:add( vec2 )</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "sub"></a>
+    <strong>sub (vec)</strong>
+    </dt>
+    <dd>
+    Subtracts two vectors.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vec</span>
+         a Vector2D object to subtract
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        nothing
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="comment">-- vec2 gets subtracted from vec1
+</span> vec1:sub( vec2 )</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "mult"></a>
+    <strong>mult (s)</strong>
+    </dt>
+    <dd>
+    Multipplies the vector with a value.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">s</span>
+            <span class="types"><span class="type">number</span></span>
+         number to multiply the x and y value with
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        nothing
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ vec1:mult( <span class="number">12</span> )</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "div"></a>
+    <strong>div (s)</strong>
+    </dt>
+    <dd>
+    Divides the vector with a value.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">s</span>
+            <span class="types"><span class="type">number</span></span>
+         number to divide the x and y value with
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        nothing
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ vec1:div( <span class="number">12</span> )</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "dot"></a>
+    <strong>dot (vec)</strong>
+    </dt>
+    <dd>
+    Creates a dot product of two vectors
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vec</span>
+         a Vecor2D object to compare to
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        nothing
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ vec1:dot( vec2 )</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "dist"></a>
+    <strong>dist (vec)</strong>
+    </dt>
+    <dd>
+    Calcuates the distance between two vectors
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vec</span>
+         a Vecor2D object to compare to
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        nothing
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ vec1:dist( vec2 )</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "NormalA"></a>
+    <strong>NormalA (vec)</strong>
+    </dt>
+    <dd>
+    Vector2D:NormalA(vec)
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vec</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "NormalB"></a>
+    <strong>NormalB (vec)</strong>
+    </dt>
+    <dd>
+    Vector2D:NormalB(vec)
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vec</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Normalize"></a>
+    <strong>Normalize (vec)</strong>
+    </dt>
+    <dd>
+    Creates a normalized Vector2D of a different Vector2D object.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vec</span>
+         The vector that is used to calculate the normalized value
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        a new Vector2D object
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="keyword">local</span> vec2 = Vector2D:Normalize( vec1 ) </pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Limit"></a>
+    <strong>Limit (vec, l)</strong>
+    </dt>
+    <dd>
+    Limits a Vector2D object.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vec</span>
+         First vector object to be limited
+        </li>
+        <li><span class="parameter">l</span>
+            <span class="types"><span class="type">number</span></span>
+         limit value
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        (<strong>Vector2D</strong>) a new resulting Vector2D object
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="keyword">local</span> vec2 = Vector2D:Sub( vec1, <span class="number">12</span> ) </pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "LimitMagnitude"></a>
+    <strong>LimitMagnitude (vec, max)</strong>
+    </dt>
+    <dd>
+    Vector2D:LimitMagnitude(vec, max)
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vec</span>
+
+
+        </li>
+        <li><span class="parameter">max</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Add"></a>
+    <strong>Add (vec1, vec2)</strong>
+    </dt>
+    <dd>
+    Adds two Vector2D objects.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vec1</span>
+         First vector object
+        </li>
+        <li><span class="parameter">vec2</span>
+         Second vector object
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        (<strong>Vector2D</strong>) a new resulting Vector2D object
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="keyword">local</span> vec3 = Vector2D:Add( vec1, vec2 ) </pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Sub"></a>
+    <strong>Sub (vec1, vec2)</strong>
+    </dt>
+    <dd>
+    Subtracts two Vector2D objects.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vec1</span>
+         First vector object
+        </li>
+        <li><span class="parameter">vec2</span>
+         Second vector object
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        (<strong>Vector2D</strong>) a new resulting Vector2D object
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="keyword">local</span> vec3 = Vector2D:Sub( vec1, vec2 ) </pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Mult"></a>
+    <strong>Mult (vec, s)</strong>
+    </dt>
+    <dd>
+    Multiplies a Vector2D object with a number.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vec</span>
+         First vector object (<strong>Vector2D</strong>)
+        </li>
+        <li><span class="parameter">s</span>
+            <span class="types"><span class="type">number</span></span>
+         Number multiplier
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        (<strong>Vector2D</strong>) a new resulting Vector2D object
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="keyword">local</span> vec2 = Vector2D:Mult( vec1, <span class="number">4</span> ) </pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Div"></a>
+    <strong>Div (vec, s)</strong>
+    </dt>
+    <dd>
+    Divides a Vector2D object by a number.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vec</span>
+         First vector object (<strong>Vector2D</strong>)
+        </li>
+        <li><span class="parameter">s</span>
+            <span class="types"><span class="type">number</span></span>
+         Number divisor
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        (<strong>Vector2D</strong>) a new resulting Vector2D object
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="keyword">local</span> vec2 = Vector2D:Div( vec1, <span class="number">2.5</span> ) </pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "DistManhattan"></a>
+    <strong>DistManhattan (vec1, vec2)</strong>
+    </dt>
+    <dd>
+    Manhattan Distance Calculation. </p>
+
+<p> A faster but more inaccurate distance calculation between two vectors
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vec1</span>
+         First vector object
+        </li>
+        <li><span class="parameter">vec2</span>
+         Second vector object
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        (<strong>number</strong>) the distance
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="keyword">local</span> distance = Vector2D:DistManhattan( vec1, vec2 ) </pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Dist"></a>
+    <strong>Dist (vec1, vec2)</strong>
+    </dt>
+    <dd>
+    Classic Euclidian Distance Calculation. </p>
+
+<p> Slow but accurate distance heuristic between two vectors
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vec1</span>
+         First vector object
+        </li>
+        <li><span class="parameter">vec2</span>
+         Second vector object
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        (<strong>number</strong>) the distance
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="keyword">local</span> distance = Vector2D:Dist( vec1, vec2 ) </pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Draw"></a>
+    <strong>Draw ([radius])</strong>
+    </dt>
+    <dd>
+    Draws a vector position.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">radius</span>
+         the size of the dot, default = 2
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        nothing
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ vec1:Draw( <span class="number">5</span> ) </pre>
+    </ul>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.3</a></i>
+<i style="float:right;">Last updated 2016-02-26 00:09:14 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

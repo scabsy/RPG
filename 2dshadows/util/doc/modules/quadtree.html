@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc_devilsquid.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<div class="DS-logo"></div>
+<br/>
+<h1>util</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/Arc.html">Arc</a></li>
+  <li><a href="../modules/Bezier.html">Bezier</a></li>
+  <li><a href="../modules/BezierPath.html">BezierPath</a></li>
+  <li><a href="../modules/BezierPathEditor.html">BezierPathEditor</a></li>
+  <li><a href="../modules/ControlPoint.html">ControlPoint</a></li>
+  <li><a href="../modules/Handle.html">Handle</a></li>
+  <li><a href="../modules/BitmapFontButton.html">BitmapFontButton</a></li>
+  <li><a href="../modules/camera.html">camera</a></li>
+  <li><a href="../modules/cameralayer.html">cameralayer</a></li>
+  <li><a href="../modules/Device.html">Device</a></li>
+  <li><a href="../modules/FPS.html">FPS</a></li>
+  <li><a href="../modules/imageblur.html">imageblur</a></li>
+  <li><a href="../modules/log.html">log</a></li>
+  <li><a href="../modules/object.html">object</a></li>
+  <li><a href="../modules/particledesignerplus.html">particledesignerplus</a></li>
+  <li><strong>quadtree</strong></li>
+  <li><a href="../modules/touchzone.html">touchzone</a></li>
+  <li><a href="../modules/Vector2D.html">Vector2D</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>quadtree</code></h1>
+<p>quadtree.lua</p>
+<p> Quadtree module</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Quadtree:new">Quadtree:new (pLevel, pRect, pDebug, pMaxObjects, pMaxLevels)</a></td>
+	<td class="summary">CONSTRUCTOR
+ Quadtree:new( pLevel, pRect, pDebug )
+ pLevel   &ndash; MUST BE 1
+ pRect    &ndash; your devices screen size
+ pDebug   &ndash; if you want to see the subnode dance</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CountNodes">CountNodes ()</a></td>
+	<td class="summary">PRIVATE FUNCTIONS</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Clear">Clear ()</a></td>
+	<td class="summary">quadtree:Clear()</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Split">Split ()</a></td>
+	<td class="summary">quadtree:Split()
+ splits the node into 4 subnodes</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#GetIndex">GetIndex (pObject)</a></td>
+	<td class="summary">quadtree:GetIndex()
+ Determine which node the object belongs to.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Insert">Insert (pObject)</a></td>
+	<td class="summary">quadtree:Insert( pObject )
+ Inserts a display object into quadtree</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Retrieve">Retrieve (returnObjects, pObject)</a></td>
+	<td class="summary">quadtree:Retrieve()
+ Return all objects that could collide with the given object</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Quadtree:new"></a>
+    <strong>Quadtree:new (pLevel, pRect, pDebug, pMaxObjects, pMaxLevels)</strong>
+    </dt>
+    <dd>
+    CONSTRUCTOR
+ Quadtree:new( pLevel, pRect, pDebug )
+ pLevel   &ndash; MUST BE 1
+ pRect    &ndash; your devices screen size
+ pDebug   &ndash; if you want to see the subnode dance
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pLevel</span>
+            <span class="types"><span class="type">Log</span></span>
+
+
+        </li>
+        <li><span class="parameter">pRect</span>
+
+
+        </li>
+        <li><span class="parameter">pDebug</span>
+
+
+        </li>
+        <li><span class="parameter">pMaxObjects</span>
+
+
+        </li>
+        <li><span class="parameter">pMaxLevels</span>
+        p(1, &ldquo;Quadtree:new()&rdquo;, pLevel, pRect[1], pRect[2], pRect[3], pRect[4] )
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CountNodes"></a>
+    <strong>CountNodes ()</strong>
+    </dt>
+    <dd>
+    PRIVATE FUNCTIONS
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Clear"></a>
+    <strong>Clear ()</strong>
+    </dt>
+    <dd>
+    quadtree:Clear()
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Split"></a>
+    <strong>Split ()</strong>
+    </dt>
+    <dd>
+    quadtree:Split()
+ splits the node into 4 subnodes
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "GetIndex"></a>
+    <strong>GetIndex (pObject)</strong>
+    </dt>
+    <dd>
+    quadtree:GetIndex()
+ Determine which node the object belongs to.  -1 means
+ object cannot completely fit within a child node and is part
+ of the parent node
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pObject</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.2/manual.html#pdf-print">print("quadtree</a></span>
+        GetIndex()&ldquo;, pObject, pObject.contentBounds.xMin, pObject.contentBounds.yMin, pObject.contentBounds.xMax, pObject.contentBounds.yMax)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Insert"></a>
+    <strong>Insert (pObject)</strong>
+    </dt>
+    <dd>
+    quadtree:Insert( pObject )
+ Inserts a display object into quadtree
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pObject</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.2/manual.html#pdf-print">print("quadtree</a></span>
+        Insert()&ldquo;)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Retrieve"></a>
+    <strong>Retrieve (returnObjects, pObject)</strong>
+    </dt>
+    <dd>
+    quadtree:Retrieve()
+ Return all objects that could collide with the given object
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">returnObjects</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.2/manual.html#pdf-print">print("quadtree</a></span>
+
+
+        </li>
+        <li><span class="parameter">pObject</span>
+        Retrieve()&ldquo;)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.3</a></i>
+<i style="float:right;">Last updated 2016-02-26 00:09:14 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

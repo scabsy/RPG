@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc_devilsquid.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<div class="DS-logo"></div>
+<br/>
+<h1>util</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/Arc.html">Arc</a></li>
+  <li><a href="../modules/Bezier.html">Bezier</a></li>
+  <li><a href="../modules/BezierPath.html">BezierPath</a></li>
+  <li><strong>BezierPathEditor</strong></li>
+  <li><a href="../modules/ControlPoint.html">ControlPoint</a></li>
+  <li><a href="../modules/Handle.html">Handle</a></li>
+  <li><a href="../modules/BitmapFontButton.html">BitmapFontButton</a></li>
+  <li><a href="../modules/camera.html">camera</a></li>
+  <li><a href="../modules/cameralayer.html">cameralayer</a></li>
+  <li><a href="../modules/Device.html">Device</a></li>
+  <li><a href="../modules/FPS.html">FPS</a></li>
+  <li><a href="../modules/imageblur.html">imageblur</a></li>
+  <li><a href="../modules/log.html">log</a></li>
+  <li><a href="../modules/object.html">object</a></li>
+  <li><a href="../modules/particledesignerplus.html">particledesignerplus</a></li>
+  <li><a href="../modules/quadtree.html">quadtree</a></li>
+  <li><a href="../modules/touchzone.html">touchzone</a></li>
+  <li><a href="../modules/Vector2D.html">Vector2D</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>BezierPathEditor</code></h1>
+<p>bezierpatheditor.lua
+ A simple bezier path editor to create bezier paths that can be exported and imported again</p>
+<p>
+</p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Copyright</strong>: DevilSquid, René Aye 2016</li>
+        <li><strong>License</strong>: MIT</li>
+        <li><strong>Author</strong>: René Aye</li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#new">new (options)</a></td>
+	<td class="summary">Create and draws a cubic Bézier path with simple editor and import/export functionality.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bpe:AddControlPoint">bpe:AddControlPoint (p0x, p0y, p1x, p1y)</a></td>
+	<td class="summary">Add a control point to the bezier path</p>
+
+<p> A control point consist of a starting point where the curve is going through
+ and a curve point which controls the curvines
+ To draw a bezier curve we need at last two control points (= 2 starting points + 2 curve points)</p>
+
+<p> This method takes control point lining into account: control points, that are not at the very beginning or very end
+ of the whole path needs to be doubled to have more control on the curve.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bpe:AddContinuousControlPoint">bpe:AddContinuousControlPoint (p0x, p0y, p1x, p1y)</a></td>
+	<td class="summary">Add a control point that is part of a continuous list of control points
+ like the list that gets exported by the Export function</p>
+
+<p> In this case we do not need to create copies of inner control points, because
+ the copies are already in the exported list.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bpe:DrawPlot">bpe:DrawPlot ()</a></td>
+	<td class="summary">Draws a plot of the whole Bézier path</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bpe:ClearPlot">bpe:ClearPlot ()</a></td>
+	<td class="summary">Clears the plot of the Bézier path</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bpe:DrawRaster">bpe:DrawRaster ()</a></td>
+	<td class="summary">Draws a raster to help constructing shapes as a visible guide</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bpe:ClearRaster">bpe:ClearRaster ()</a></td>
+	<td class="summary">Clears the raster</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bpe:Export">bpe:Export ()</a></td>
+	<td class="summary">Exports the current control points to copy and paste them elsewhere</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "new"></a>
+    <strong>new (options)</strong>
+    </dt>
+    <dd>
+    <p>Create and draws a cubic Bézier path with simple editor and import/export functionality. </p>
+
+<ul>
+<li>use <strong>space key</strong> to create a new control point at mouse position</li>
+<li>use <strong>e key</strong> to export to console</li>
+<li>use <strong>r key</strong> to show/hide grid</li>
+<li>use <strong>numpad+</strong> to increase grid size</li>
+<li>use <strong>numpad-</strong> to decrease grid size</li>
+</ul>
+
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">options</span>
+        <p> a table with options for the Bézier curve</p>
+
+<ul>
+<li><code>parent</code>:             (<strong>GroupObject</strong>) the parent object (<em>default</em>: nil)</li>
+<li><code>x</code>:                  (<strong>number</strong>) the x position of the path (<em>default</em>: 0)</li>
+<li><code>y</code>:                  (<strong>number</strong>) the y position of the path (<em>default</em>: 0)</li>
+<li><code>density</code>:            (<strong>number</strong>) the density of the plot (<em>default</em>: 100)</li>
+<li><code>strokeWidth</code>:        (<strong>number</strong>) the stroke width (<em>default</em>: 2)</li>
+<li><code>controlPoints</code>:      (<strong>array</strong>) an array with a continuous list of control point coordinates like
+the list from the bezierpatheditor export function. Use this to continue editing a curve. Otherwise leave
+empty if you want to create a new curve from scratch.</li>
+</ul>
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bezier path group object
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/BezierPath.html#">BezierPath</a>
+    </ul>
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+  <span class="keyword">local</span> BezierPath = <span class="global">require</span>( <span class="string">"devilsquid.util.bezier.bezierpath"</span> )
+
+  <span class="keyword">local</span> bezierPath = BezierPath:new({
+    density=<span class="number">200</span>,
+    strokeWidth=<span class="number">2</span>,
+    controlPoints={<span class="number">88</span>,<span class="number">1027</span>,<span class="number">138</span>,<span class="number">1077</span>,<span class="number">392</span>,<span class="number">950</span>,<span class="number">442</span>,<span class="number">1000</span>,<span class="number">392</span>,<span class="number">950</span>,<span class="number">442</span>,<span class="number">1000</span>,<span class="number">260</span>,<span class="number">908</span>,<span class="number">310</span>,<span class="number">958</span>}
+    })</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "bpe:AddControlPoint"></a>
+    <strong>bpe:AddControlPoint (p0x, p0y, p1x, p1y)</strong>
+    </dt>
+    <dd>
+    Add a control point to the bezier path</p>
+
+<p> A control point consist of a starting point where the curve is going through
+ and a curve point which controls the curvines
+ To draw a bezier curve we need at last two control points (= 2 starting points + 2 curve points)</p>
+
+<p> This method takes control point lining into account: control points, that are not at the very beginning or very end
+ of the whole path needs to be doubled to have more control on the curve.  this way we have two curve controllers.
+ Infact we create two control points, that are linked together, so that they always do have the same position
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">p0x</span>
+            <span class="types"><span class="type">number</span></span>
+         x value of control point
+        </li>
+        <li><span class="parameter">p0y</span>
+            <span class="types"><span class="type">number</span></span>
+         y value of control point
+        </li>
+        <li><span class="parameter">p1x</span>
+            <span class="types"><span class="type">number</span></span>
+         x value of curve point
+        </li>
+        <li><span class="parameter">p1y</span>
+            <span class="types"><span class="type">number</span></span>
+         y value of curve point
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "bpe:AddContinuousControlPoint"></a>
+    <strong>bpe:AddContinuousControlPoint (p0x, p0y, p1x, p1y)</strong>
+    </dt>
+    <dd>
+    Add a control point that is part of a continuous list of control points
+ like the list that gets exported by the Export function</p>
+
+<p> In this case we do not need to create copies of inner control points, because
+ the copies are already in the exported list.  This function does take care to
+ link the inner control points by counting: if the number is bigger than 2 and
+ odd means it has to be linked with the previous control point
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">p0x</span>
+            <span class="types"><span class="type">number</span></span>
+         x value of control point
+        </li>
+        <li><span class="parameter">p0y</span>
+            <span class="types"><span class="type">number</span></span>
+         y value of control point
+        </li>
+        <li><span class="parameter">p1x</span>
+            <span class="types"><span class="type">number</span></span>
+         x value of curve point
+        </li>
+        <li><span class="parameter">p1y</span>
+            <span class="types"><span class="type">number</span></span>
+         y value of curve point
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "bpe:DrawPlot"></a>
+    <strong>bpe:DrawPlot ()</strong>
+    </dt>
+    <dd>
+    Draws a plot of the whole Bézier path
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "bpe:ClearPlot"></a>
+    <strong>bpe:ClearPlot ()</strong>
+    </dt>
+    <dd>
+    Clears the plot of the Bézier path
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "bpe:DrawRaster"></a>
+    <strong>bpe:DrawRaster ()</strong>
+    </dt>
+    <dd>
+    Draws a raster to help constructing shapes as a visible guide
+
+
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ Press r on keyboard to show/hide the raster
+ Press numpad+ on keyboard to increase raster size
+ Press numpad- on keyboard to decrease raster size</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "bpe:ClearRaster"></a>
+    <strong>bpe:ClearRaster ()</strong>
+    </dt>
+    <dd>
+    Clears the raster
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "bpe:Export"></a>
+    <strong>bpe:Export ()</strong>
+    </dt>
+    <dd>
+    Exports the current control points to copy and paste them elsewhere
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        nothing
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ Press e on keyboard to <span class="global">print</span> a list of control point coordinates to console.
+ Copy <span class="keyword">and</span> paste the list into the appropritat command i.e.
+ BezierPathEditor:new({ controlPoints={<span class="number">0</span>,<span class="number">0</span>,<span class="number">100</span>,<span class="number">100</span>, ... } })</pre>
+    </ul>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.3</a></i>
+<i style="float:right;">Last updated 2016-02-26 00:09:14 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

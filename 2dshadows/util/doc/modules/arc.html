@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc_devilsquid.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<div class="DS-logo"></div>
+<br/>
+<h1>util</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><strong>Arc</strong></li>
+  <li><a href="../modules/Bezier.html">Bezier</a></li>
+  <li><a href="../modules/BezierPath.html">BezierPath</a></li>
+  <li><a href="../modules/BezierPathEditor.html">BezierPathEditor</a></li>
+  <li><a href="../modules/ControlPoint.html">ControlPoint</a></li>
+  <li><a href="../modules/Handle.html">Handle</a></li>
+  <li><a href="../modules/BitmapFontButton.html">BitmapFontButton</a></li>
+  <li><a href="../modules/camera.html">camera</a></li>
+  <li><a href="../modules/cameralayer.html">cameralayer</a></li>
+  <li><a href="../modules/Device.html">Device</a></li>
+  <li><a href="../modules/FPS.html">FPS</a></li>
+  <li><a href="../modules/imageblur.html">imageblur</a></li>
+  <li><a href="../modules/log.html">log</a></li>
+  <li><a href="../modules/object.html">object</a></li>
+  <li><a href="../modules/particledesignerplus.html">particledesignerplus</a></li>
+  <li><a href="../modules/quadtree.html">quadtree</a></li>
+  <li><a href="../modules/touchzone.html">touchzone</a></li>
+  <li><a href="../modules/Vector2D.html">Vector2D</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>Arc</code></h1>
+<p>arc.lua
+ A module to create and draw arcs</p>
+<p>
+</p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Copyright</strong>: DevilSquid, René Aye 2016</li>
+        <li><strong>License</strong>: MIT</li>
+        <li><strong>Author</strong>: René Aye</li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#new">new (startAngle, endAngle, radius, strokeWidth, closed, pie)</a></td>
+	<td class="summary">Constructor function of Arc module</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#arc:Draw">arc:Draw ()</a></td>
+	<td class="summary">Draws the arc</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#arc:Clear">arc:Clear ()</a></td>
+	<td class="summary">Removes the arc</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#arc:SetColor">arc:SetColor (options)</a></td>
+	<td class="summary">Sets the color of the arc</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#arc:SetStartAngle">arc:SetStartAngle (newStartAngle)</a></td>
+	<td class="summary">Changes the angle where the drawing of the arc begins</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#arc:SetPercent">arc:SetPercent (percent, clockwise, bothsides)</a></td>
+	<td class="summary">arc:SetPercent( percent, clockwise, bothsides )</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "new"></a>
+    <strong>new (startAngle, endAngle, radius, strokeWidth, closed, pie)</strong>
+    </dt>
+    <dd>
+    Constructor function of Arc module
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">startAngle</span>
+            <span class="types"><span class="type">int</span></span>
+         the starting angle of the arc
+        </li>
+        <li><span class="parameter">endAngle</span>
+            <span class="types"><span class="type">int</span></span>
+         the ending angle of the arc
+        </li>
+        <li><span class="parameter">radius</span>
+            <span class="types"><span class="type">int</span></span>
+         radius of the circle arc
+        </li>
+        <li><span class="parameter">strokeWidth</span>
+            <span class="types"><span class="type">int</span></span>
+         the thicknes of the arc in pixels
+        </li>
+        <li><span class="parameter">closed</span>
+            <span class="types"><span class="type">bool</span></span>
+         if true, draws a closing line between beginning and end of the arc
+        </li>
+        <li><span class="parameter">pie</span>
+            <span class="types"><span class="type">bool</span></span>
+         if closed and pie is true then draw a wedge
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        arc object table
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "arc:Draw"></a>
+    <strong>arc:Draw ()</strong>
+    </dt>
+    <dd>
+    Draws the arc
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        nothing
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "arc:Clear"></a>
+    <strong>arc:Clear ()</strong>
+    </dt>
+    <dd>
+    Removes the arc
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        nothing
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "arc:SetColor"></a>
+    <strong>arc:SetColor (options)</strong>
+    </dt>
+    <dd>
+    Sets the color of the arc
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">options</span>
+         table with r,g,b values
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        nothing
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "arc:SetStartAngle"></a>
+    <strong>arc:SetStartAngle (newStartAngle)</strong>
+    </dt>
+    <dd>
+    Changes the angle where the drawing of the arc begins
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">newStartAngle</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "arc:SetPercent"></a>
+    <strong>arc:SetPercent (percent, clockwise, bothsides)</strong>
+    </dt>
+    <dd>
+    arc:SetPercent( percent, clockwise, bothsides )
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">percent</span>
+         draws a percentage of the arc, 50% wpuld be the half arc
+        </li>
+        <li><span class="parameter">clockwise</span>
+         if true, then the arc gets less in clockwise direction, otherwise in counterclockwise
+        </li>
+        <li><span class="parameter">bothsides</span>
+         if true, ther arc gets less in both direction
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        nothing
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.3</a></i>
+<i style="float:right;">Last updated 2016-02-26 00:09:14 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

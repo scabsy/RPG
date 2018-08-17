@@ -1,0 +1,1191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc_devilsquid.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<div class="DS-logo"></div>
+<br/>
+<h1>util</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/Arc.html">Arc</a></li>
+  <li><a href="../modules/Bezier.html">Bezier</a></li>
+  <li><a href="../modules/BezierPath.html">BezierPath</a></li>
+  <li><a href="../modules/BezierPathEditor.html">BezierPathEditor</a></li>
+  <li><a href="../modules/ControlPoint.html">ControlPoint</a></li>
+  <li><a href="../modules/Handle.html">Handle</a></li>
+  <li><a href="../modules/BitmapFontButton.html">BitmapFontButton</a></li>
+  <li><strong>camera</strong></li>
+  <li><a href="../modules/cameralayer.html">cameralayer</a></li>
+  <li><a href="../modules/Device.html">Device</a></li>
+  <li><a href="../modules/FPS.html">FPS</a></li>
+  <li><a href="../modules/imageblur.html">imageblur</a></li>
+  <li><a href="../modules/log.html">log</a></li>
+  <li><a href="../modules/object.html">object</a></li>
+  <li><a href="../modules/particledesignerplus.html">particledesignerplus</a></li>
+  <li><a href="../modules/quadtree.html">quadtree</a></li>
+  <li><a href="../modules/touchzone.html">touchzone</a></li>
+  <li><a href="../modules/Vector2D.html">Vector2D</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>camera</code></h1>
+<p>Camera.lua</p>
+<p> Camera class pan/zoom/rotation of layer</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#MapRange">MapRange (a1, a2, b1, b2, aVal)</a></td>
+	<td class="summary">MapRange( a1, a2, b1, b2, aVal )
+ map the value aVal from range a1,a2 to range b1,b2</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Distance">Distance (x1, y1, x2, y2)</a></td>
+	<td class="summary">Distance( x1,y1, x2,y2)
+ Calculate distance between two points</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:AddLayer">cam:AddLayer ()</a></td>
+	<td class="summary">cam:AddLayer()
+ adds a new layer to the camera
+ the higher the layer index the farther away is the layer from camera</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:CalculateAutoDOFValues">cam:CalculateAutoDOFValues ()</a></td>
+	<td class="summary">cam:CalculateAutoDOFValues()
+ recalculates the autoBlur, autoScale and autoFade Values for each layer</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:CountLayer">cam:CountLayer ()</a></td>
+	<td class="summary">cam:CountLayer()
+ return the number of layers in the camera</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:GetLayerWithIndex">cam:GetLayerWithIndex (pIndex)</a></td>
+	<td class="summary">cam:GetLayerWithIndex( pIndex )
+ returns the layer with the index pIndex</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:Insert">cam:Insert (pObj, pLayerIndex)</a></td>
+	<td class="summary">cam:Insert( pObj, pLayerIndex )
+ Inserts an display object pObj into the layer with the index pLayerIndex
+ pLayerIndex is an integer for the corresponding layer number
+ 0 = background layer
+ 1 = foreground layer</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:Move">cam:Move (pX, pY)</a></td>
+	<td class="summary">cam:Move(x, y)
+ moves the Camera with all its layers by pX and pY</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:MoveTo">cam:MoveTo (pX, pY)</a></td>
+	<td class="summary">cam:Move(x, y)
+ moves the Camera with all its layers by pX and pY</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:MoveTrackedObject">cam:MoveTrackedObject (px, py)</a></td>
+	<td class="summary">cam:MoveTrackedObject(px,py)
+ moves the tracked object by px and px</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:Remove">cam:Remove ()</a></td>
+	<td class="summary">cam:Remove()</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:Rotation">cam:Rotation (pRot)</a></td>
+	<td class="summary">cam:Rotation( pRot )
+ rotates the layer to pRot degrees</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:Rotate">cam:Rotate (pRot)</a></td>
+	<td class="summary">cam:Rotate( pRot )
+ rotates the layer by pRot degrees</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:SetAutoBlurSettings">cam:SetAutoBlurSettings (p1, p2, p3, p4)</a></td>
+	<td class="summary">cam:SetAutoBlurSettings( pLayerIndex, pNewFactor )
+ minSize, maxSize, minSigma, maxSigma</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:SetAutoFadeSettings">cam:SetAutoFadeSettings (p1, p2, p3)</a></td>
+	<td class="summary">cam:SetAutoFadeSettings( pLayerIndex, pNewFactor )
+ 0-index Layer, fade strength for farther away layers, fade strength for closer layers</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:SetAutoFadeZeroLayer">cam:SetAutoFadeZeroLayer (pLayerIndex)</a></td>
+	<td class="summary">cam:SetAutoFadeZeroLayer( pLayerIndex )</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:SetAutoScaleSettings">cam:SetAutoScaleSettings (p1, p2, p3)</a></td>
+	<td class="summary">cam:SetAutoScaleSettings( p1,p2,p3 )
+ 0-index Layer, scale strength for farther away layers, fade strength for closer layers</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:SetAutoScaleZeroLayer">cam:SetAutoScaleZeroLayer (pLayerIndex)</a></td>
+	<td class="summary">cam:SetAutoScaleZeroLayer( pLayerIndex )</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:SetDebugOff">cam:SetDebugOff ()</a></td>
+	<td class="summary">cam:SetDebugOff( )</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:SetDebugOn">cam:SetDebugOn ()</a></td>
+	<td class="summary">cam:SetDebugOn( )</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:SetFocusLayer">cam:SetFocusLayer (pLayerIndex)</a></td>
+	<td class="summary">cam:SetParallaxFactor( pLayerIndex, pNewFactor )
+ sets the parallax factor of a layer</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:SetLayerAutoBlurOff">cam:SetLayerAutoBlurOff (pLayerIndex)</a></td>
+	<td class="summary">cam:SetLayerAutoBlurOff( pLayerIndex )
+ sets the automatic blur effect for layer with pLayerIndex off
+ pLayerIndex is the layer number
+ if pLayerIndex is nil then iterate all layers</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:SetLayerAutoBlurOn">cam:SetLayerAutoBlurOn (pLayerIndex)</a></td>
+	<td class="summary">cam:SetLayerAutoBlurOn( pLayerIndex )
+ sets the automatic blur effect for layer with pLayerIndex on
+ pLayerIndex is the layer number
+ if pLayerIndex is nil then iterate all layers</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:SetLayerAutoFadeOff">cam:SetLayerAutoFadeOff (pLayerIndex)</a></td>
+	<td class="summary">cam:SetLayerAutoFadeOff( pLayerIndex )
+ sets the automatic fading for layer with pLayerIndex off
+ pLayerIndex is the layer number
+ if pLayerIndex is nil then iterate all layers</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:SetLayerAutoFadeOn">cam:SetLayerAutoFadeOn (pLayerIndex)</a></td>
+	<td class="summary">cam:SetLayerAutoFadeOn( pLayerIndex )
+ sets the automatic fading for layer with pLayerIndex on
+ pLayerIndex is the layer number
+ if pLayerIndex is nil then iterate all layers</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:SetLayerAutoScaleOff">cam:SetLayerAutoScaleOff (pLayerIndex)</a></td>
+	<td class="summary">cam:SetLayerAutoScaleOff( pLayerIndex )
+ sets the automatic scaling for layer with pLayerIndex off
+ pLayerIndex is the layer number
+ if pLayerIndex is nil then iterate all layers</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:SetLayerAutoScaleOn">cam:SetLayerAutoScaleOn (pLayerIndex)</a></td>
+	<td class="summary">cam:SetLayerAutoScaleOn( pLayerIndex )
+ sets the automatic scaling for layer with pLayerIndex on
+ pLayerIndex is the layer number
+ if pLayerIndex is nil then iterate all layers</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:SetLayerBlurFactor">cam:SetLayerBlurFactor (pLayerIndex, pBlur, pSigma)</a></td>
+	<td class="summary">cam:SetLayerBlurFactor( pLayerIndex, pBlur )
+ sets the parallax factor of a layer</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:SetLayerScaleFactor">cam:SetLayerScaleFactor (pLayerIndex, pScale)</a></td>
+	<td class="summary">cam:SetLayerScaleFactor( pLayerIndex, pScale )
+ sets the scale factor of a layer</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:SetLayerFadeFactor">cam:SetLayerFadeFactor (pLayerIndex, pFade)</a></td>
+	<td class="summary">cam:SetLayerFadeFactor( pLayerIndex, pFade )
+ sets the fade factor of a layer manually</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:SetLayerParallaxFactor">cam:SetLayerParallaxFactor (pLayerIndex, pNewFactor)</a></td>
+	<td class="summary">cam:SetLayerParallaxFactor( pLayerIndex, pNewFactor )
+ sets the parallax factor of a layer</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:LockTrackingAxis">cam:LockTrackingAxis (lx, ly)</a></td>
+	<td class="summary">cam:LockTrackingAxis( lx, ly )
+ locks the x and/or y axis for tracking
+ if an axis is locked then it ignores the movement in that direction for the tracked object
+ set lx to true to lock x axis movement
+ set ly to true to lock y axis movement</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:SetTracking">cam:SetTracking (pObj, pDamping)</a></td>
+	<td class="summary">cam:SetTracking( pObj, pDamping )
+ tracks the display object pObj
+ pDamping damps the tracking, try values between 2 and 20
+ pDamping of 1 = snap to object</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:SwitchDebug">cam:SwitchDebug ()</a></td>
+	<td class="summary">cam:SwitchDebug( )
+ switches the debug state</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:UpdateTracking">cam:UpdateTracking ()</a></td>
+	<td class="summary">cam:UpdateTracking()</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:UpdateTracking2">cam:UpdateTracking2 ()</a></td>
+	<td class="summary">cam:UpdateTracking2()</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:Update">cam:Update ()</a></td>
+	<td class="summary">cam:Update()</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:UpdateDebug">cam:UpdateDebug ()</a></td>
+	<td class="summary">cam:UpdateDebug( )</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cam:timer">cam:timer (event)</a></td>
+	<td class="summary">cam:timer( event )</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "MapRange"></a>
+    <strong>MapRange (a1, a2, b1, b2, aVal)</strong>
+    </dt>
+    <dd>
+    MapRange( a1, a2, b1, b2, aVal )
+ map the value aVal from range a1,a2 to range b1,b2
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">a1</span>
+
+
+        </li>
+        <li><span class="parameter">a2</span>
+
+
+        </li>
+        <li><span class="parameter">b1</span>
+
+
+        </li>
+        <li><span class="parameter">b2</span>
+
+
+        </li>
+        <li><span class="parameter">aVal</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Distance"></a>
+    <strong>Distance (x1, y1, x2, y2)</strong>
+    </dt>
+    <dd>
+    Distance( x1,y1, x2,y2)
+ Calculate distance between two points
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x1</span>
+
+
+        </li>
+        <li><span class="parameter">y1</span>
+
+
+        </li>
+        <li><span class="parameter">x2</span>
+
+
+        </li>
+        <li><span class="parameter">y2</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:AddLayer"></a>
+    <strong>cam:AddLayer ()</strong>
+    </dt>
+    <dd>
+    cam:AddLayer()
+ adds a new layer to the camera
+ the higher the layer index the farther away is the layer from camera
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:CalculateAutoDOFValues"></a>
+    <strong>cam:CalculateAutoDOFValues ()</strong>
+    </dt>
+    <dd>
+    cam:CalculateAutoDOFValues()
+ recalculates the autoBlur, autoScale and autoFade Values for each layer
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:CountLayer"></a>
+    <strong>cam:CountLayer ()</strong>
+    </dt>
+    <dd>
+    cam:CountLayer()
+ return the number of layers in the camera
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:GetLayerWithIndex"></a>
+    <strong>cam:GetLayerWithIndex (pIndex)</strong>
+    </dt>
+    <dd>
+    cam:GetLayerWithIndex( pIndex )
+ returns the layer with the index pIndex
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pIndex</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:Insert"></a>
+    <strong>cam:Insert (pObj, pLayerIndex)</strong>
+    </dt>
+    <dd>
+    cam:Insert( pObj, pLayerIndex )
+ Inserts an display object pObj into the layer with the index pLayerIndex
+ pLayerIndex is an integer for the corresponding layer number
+ 0 = background layer
+ 1 = foreground layer
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pObj</span>
+
+
+        </li>
+        <li><span class="parameter">pLayerIndex</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:Move"></a>
+    <strong>cam:Move (pX, pY)</strong>
+    </dt>
+    <dd>
+    cam:Move(x, y)
+ moves the Camera with all its layers by pX and pY
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pX</span>
+
+
+        </li>
+        <li><span class="parameter">pY</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:MoveTo"></a>
+    <strong>cam:MoveTo (pX, pY)</strong>
+    </dt>
+    <dd>
+    cam:Move(x, y)
+ moves the Camera with all its layers by pX and pY
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pX</span>
+
+
+        </li>
+        <li><span class="parameter">pY</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:MoveTrackedObject"></a>
+    <strong>cam:MoveTrackedObject (px, py)</strong>
+    </dt>
+    <dd>
+    cam:MoveTrackedObject(px,py)
+ moves the tracked object by px and px
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">px</span>
+
+
+        </li>
+        <li><span class="parameter">py</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:Remove"></a>
+    <strong>cam:Remove ()</strong>
+    </dt>
+    <dd>
+    cam:Remove()
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:Rotation"></a>
+    <strong>cam:Rotation (pRot)</strong>
+    </dt>
+    <dd>
+    cam:Rotation( pRot )
+ rotates the layer to pRot degrees
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pRot</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:Rotate"></a>
+    <strong>cam:Rotate (pRot)</strong>
+    </dt>
+    <dd>
+    cam:Rotate( pRot )
+ rotates the layer by pRot degrees
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pRot</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:SetAutoBlurSettings"></a>
+    <strong>cam:SetAutoBlurSettings (p1, p2, p3, p4)</strong>
+    </dt>
+    <dd>
+    cam:SetAutoBlurSettings( pLayerIndex, pNewFactor )
+ minSize, maxSize, minSigma, maxSigma
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">p1</span>
+
+
+        </li>
+        <li><span class="parameter">p2</span>
+
+
+        </li>
+        <li><span class="parameter">p3</span>
+
+
+        </li>
+        <li><span class="parameter">p4</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:SetAutoFadeSettings"></a>
+    <strong>cam:SetAutoFadeSettings (p1, p2, p3)</strong>
+    </dt>
+    <dd>
+    cam:SetAutoFadeSettings( pLayerIndex, pNewFactor )
+ 0-index Layer, fade strength for farther away layers, fade strength for closer layers
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">p1</span>
+
+
+        </li>
+        <li><span class="parameter">p2</span>
+
+
+        </li>
+        <li><span class="parameter">p3</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:SetAutoFadeZeroLayer"></a>
+    <strong>cam:SetAutoFadeZeroLayer (pLayerIndex)</strong>
+    </dt>
+    <dd>
+    cam:SetAutoFadeZeroLayer( pLayerIndex )
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pLayerIndex</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:SetAutoScaleSettings"></a>
+    <strong>cam:SetAutoScaleSettings (p1, p2, p3)</strong>
+    </dt>
+    <dd>
+    cam:SetAutoScaleSettings( p1,p2,p3 )
+ 0-index Layer, scale strength for farther away layers, fade strength for closer layers
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">p1</span>
+
+
+        </li>
+        <li><span class="parameter">p2</span>
+
+
+        </li>
+        <li><span class="parameter">p3</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:SetAutoScaleZeroLayer"></a>
+    <strong>cam:SetAutoScaleZeroLayer (pLayerIndex)</strong>
+    </dt>
+    <dd>
+    cam:SetAutoScaleZeroLayer( pLayerIndex )
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pLayerIndex</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:SetDebugOff"></a>
+    <strong>cam:SetDebugOff ()</strong>
+    </dt>
+    <dd>
+    cam:SetDebugOff( )
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:SetDebugOn"></a>
+    <strong>cam:SetDebugOn ()</strong>
+    </dt>
+    <dd>
+    cam:SetDebugOn( )
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:SetFocusLayer"></a>
+    <strong>cam:SetFocusLayer (pLayerIndex)</strong>
+    </dt>
+    <dd>
+    cam:SetParallaxFactor( pLayerIndex, pNewFactor )
+ sets the parallax factor of a layer
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pLayerIndex</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:SetLayerAutoBlurOff"></a>
+    <strong>cam:SetLayerAutoBlurOff (pLayerIndex)</strong>
+    </dt>
+    <dd>
+    cam:SetLayerAutoBlurOff( pLayerIndex )
+ sets the automatic blur effect for layer with pLayerIndex off
+ pLayerIndex is the layer number
+ if pLayerIndex is nil then iterate all layers
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pLayerIndex</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:SetLayerAutoBlurOn"></a>
+    <strong>cam:SetLayerAutoBlurOn (pLayerIndex)</strong>
+    </dt>
+    <dd>
+    cam:SetLayerAutoBlurOn( pLayerIndex )
+ sets the automatic blur effect for layer with pLayerIndex on
+ pLayerIndex is the layer number
+ if pLayerIndex is nil then iterate all layers
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pLayerIndex</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:SetLayerAutoFadeOff"></a>
+    <strong>cam:SetLayerAutoFadeOff (pLayerIndex)</strong>
+    </dt>
+    <dd>
+    cam:SetLayerAutoFadeOff( pLayerIndex )
+ sets the automatic fading for layer with pLayerIndex off
+ pLayerIndex is the layer number
+ if pLayerIndex is nil then iterate all layers
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pLayerIndex</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:SetLayerAutoFadeOn"></a>
+    <strong>cam:SetLayerAutoFadeOn (pLayerIndex)</strong>
+    </dt>
+    <dd>
+    cam:SetLayerAutoFadeOn( pLayerIndex )
+ sets the automatic fading for layer with pLayerIndex on
+ pLayerIndex is the layer number
+ if pLayerIndex is nil then iterate all layers
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pLayerIndex</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:SetLayerAutoScaleOff"></a>
+    <strong>cam:SetLayerAutoScaleOff (pLayerIndex)</strong>
+    </dt>
+    <dd>
+    cam:SetLayerAutoScaleOff( pLayerIndex )
+ sets the automatic scaling for layer with pLayerIndex off
+ pLayerIndex is the layer number
+ if pLayerIndex is nil then iterate all layers
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pLayerIndex</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:SetLayerAutoScaleOn"></a>
+    <strong>cam:SetLayerAutoScaleOn (pLayerIndex)</strong>
+    </dt>
+    <dd>
+    cam:SetLayerAutoScaleOn( pLayerIndex )
+ sets the automatic scaling for layer with pLayerIndex on
+ pLayerIndex is the layer number
+ if pLayerIndex is nil then iterate all layers
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pLayerIndex</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:SetLayerBlurFactor"></a>
+    <strong>cam:SetLayerBlurFactor (pLayerIndex, pBlur, pSigma)</strong>
+    </dt>
+    <dd>
+    cam:SetLayerBlurFactor( pLayerIndex, pBlur )
+ sets the parallax factor of a layer
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pLayerIndex</span>
+
+
+        </li>
+        <li><span class="parameter">pBlur</span>
+
+
+        </li>
+        <li><span class="parameter">pSigma</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:SetLayerScaleFactor"></a>
+    <strong>cam:SetLayerScaleFactor (pLayerIndex, pScale)</strong>
+    </dt>
+    <dd>
+    cam:SetLayerScaleFactor( pLayerIndex, pScale )
+ sets the scale factor of a layer
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pLayerIndex</span>
+
+
+        </li>
+        <li><span class="parameter">pScale</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:SetLayerFadeFactor"></a>
+    <strong>cam:SetLayerFadeFactor (pLayerIndex, pFade)</strong>
+    </dt>
+    <dd>
+    cam:SetLayerFadeFactor( pLayerIndex, pFade )
+ sets the fade factor of a layer manually
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pLayerIndex</span>
+
+
+        </li>
+        <li><span class="parameter">pFade</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:SetLayerParallaxFactor"></a>
+    <strong>cam:SetLayerParallaxFactor (pLayerIndex, pNewFactor)</strong>
+    </dt>
+    <dd>
+    cam:SetLayerParallaxFactor( pLayerIndex, pNewFactor )
+ sets the parallax factor of a layer
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pLayerIndex</span>
+
+
+        </li>
+        <li><span class="parameter">pNewFactor</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:LockTrackingAxis"></a>
+    <strong>cam:LockTrackingAxis (lx, ly)</strong>
+    </dt>
+    <dd>
+    cam:LockTrackingAxis( lx, ly )
+ locks the x and/or y axis for tracking
+ if an axis is locked then it ignores the movement in that direction for the tracked object
+ set lx to true to lock x axis movement
+ set ly to true to lock y axis movement
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">lx</span>
+
+
+        </li>
+        <li><span class="parameter">ly</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:SetTracking"></a>
+    <strong>cam:SetTracking (pObj, pDamping)</strong>
+    </dt>
+    <dd>
+    cam:SetTracking( pObj, pDamping )
+ tracks the display object pObj
+ pDamping damps the tracking, try values between 2 and 20
+ pDamping of 1 = snap to object
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pObj</span>
+
+
+        </li>
+        <li><span class="parameter">pDamping</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:SwitchDebug"></a>
+    <strong>cam:SwitchDebug ()</strong>
+    </dt>
+    <dd>
+    cam:SwitchDebug( )
+ switches the debug state
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:UpdateTracking"></a>
+    <strong>cam:UpdateTracking ()</strong>
+    </dt>
+    <dd>
+    cam:UpdateTracking()
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:UpdateTracking2"></a>
+    <strong>cam:UpdateTracking2 ()</strong>
+    </dt>
+    <dd>
+    cam:UpdateTracking2()
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:Update"></a>
+    <strong>cam:Update ()</strong>
+    </dt>
+    <dd>
+    cam:Update()
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:UpdateDebug"></a>
+    <strong>cam:UpdateDebug ()</strong>
+    </dt>
+    <dd>
+    cam:UpdateDebug( )
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cam:timer"></a>
+    <strong>cam:timer (event)</strong>
+    </dt>
+    <dd>
+    cam:timer( event )
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">event</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.3</a></i>
+<i style="float:right;">Last updated 2016-02-26 00:09:14 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

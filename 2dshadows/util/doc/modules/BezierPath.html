@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc_devilsquid.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<div class="DS-logo"></div>
+<br/>
+<h1>util</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/Arc.html">Arc</a></li>
+  <li><a href="../modules/Bezier.html">Bezier</a></li>
+  <li><strong>BezierPath</strong></li>
+  <li><a href="../modules/BezierPathEditor.html">BezierPathEditor</a></li>
+  <li><a href="../modules/ControlPoint.html">ControlPoint</a></li>
+  <li><a href="../modules/Handle.html">Handle</a></li>
+  <li><a href="../modules/BitmapFontButton.html">BitmapFontButton</a></li>
+  <li><a href="../modules/camera.html">camera</a></li>
+  <li><a href="../modules/cameralayer.html">cameralayer</a></li>
+  <li><a href="../modules/Device.html">Device</a></li>
+  <li><a href="../modules/FPS.html">FPS</a></li>
+  <li><a href="../modules/imageblur.html">imageblur</a></li>
+  <li><a href="../modules/log.html">log</a></li>
+  <li><a href="../modules/object.html">object</a></li>
+  <li><a href="../modules/particledesignerplus.html">particledesignerplus</a></li>
+  <li><a href="../modules/quadtree.html">quadtree</a></li>
+  <li><a href="../modules/touchzone.html">touchzone</a></li>
+  <li><a href="../modules/Vector2D.html">Vector2D</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>BezierPath</code></h1>
+<p>bezierpath.lua
+ A function to draw a Bézier path
+ In this case a path means several Bézier segments connected to a path</p>
+<p>
+</p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Copyright</strong>: DevilSquid, René Aye 2016</li>
+        <li><strong>License</strong>: MIT</li>
+        <li><strong>Author</strong>: René Aye</li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#new">new (options)</a></td>
+	<td class="summary">Create and draws a cubic Bézier path</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bezierPath:DrawPlot">bezierPath:DrawPlot ()</a></td>
+	<td class="summary">Draw a plot of the whole Bézier path</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bezierPath:ClearPlot">bezierPath:ClearPlot ()</a></td>
+	<td class="summary">Clear the plot of the Bézier path</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "new"></a>
+    <strong>new (options)</strong>
+    </dt>
+    <dd>
+    Create and draws a cubic Bézier path
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">options</span>
+        <p> a table with options for the Bézier curve</p>
+
+<ul>
+<li><code>parent</code>:             (<strong>GroupObject</strong>) the parent object (default: nil)</li>
+<li><code>x</code>:                  (<strong>number</strong>) the x position of the path (default: 0)</li>
+<li><code>y</code>:                  (<strong>number</strong>) the y position of the path (default: 0)</li>
+<li><code>density</code>:            (<strong>number</strong>) the density of the plot (default: 100)</li>
+<li><code>strokeWidth</code>:        (<strong>number</strong>) the stroke width (default: 2)</li>
+<li><code>controlPoints</code>:      (<strong>array</strong>) an array with a continuous list of control point coordinates like
+the list from the bezierpatheditor export function</li>
+</ul>
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bezier path group object
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/BezierPathEditor.html#bpe:Export">BezierPathEditor:Export</a>
+    </ul>
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+  <span class="keyword">local</span> BezierPath = <span class="global">require</span>( <span class="string">"devilsquid.util.bezier.bezierpath"</span> )
+
+  <span class="keyword">local</span> bezierPath = BezierPath:new({
+    density=<span class="number">200</span>,
+    strokeWidth=<span class="number">2</span>,
+    controlPoints={<span class="number">88</span>,<span class="number">1027</span>,<span class="number">138</span>,<span class="number">1077</span>,<span class="number">392</span>,<span class="number">950</span>,<span class="number">442</span>,<span class="number">1000</span>,<span class="number">392</span>,<span class="number">950</span>,<span class="number">442</span>,<span class="number">1000</span>,<span class="number">260</span>,<span class="number">908</span>,<span class="number">310</span>,<span class="number">958</span>}
+    })</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "bezierPath:DrawPlot"></a>
+    <strong>bezierPath:DrawPlot ()</strong>
+    </dt>
+    <dd>
+    Draw a plot of the whole Bézier path
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "bezierPath:ClearPlot"></a>
+    <strong>bezierPath:ClearPlot ()</strong>
+    </dt>
+    <dd>
+    Clear the plot of the Bézier path
+
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.3</a></i>
+<i style="float:right;">Last updated 2016-02-26 00:09:14 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

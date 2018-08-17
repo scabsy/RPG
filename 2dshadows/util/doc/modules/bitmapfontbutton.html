@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc_devilsquid.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<div class="DS-logo"></div>
+<br/>
+<h1>util</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/Arc.html">Arc</a></li>
+  <li><a href="../modules/Bezier.html">Bezier</a></li>
+  <li><a href="../modules/BezierPath.html">BezierPath</a></li>
+  <li><a href="../modules/BezierPathEditor.html">BezierPathEditor</a></li>
+  <li><a href="../modules/ControlPoint.html">ControlPoint</a></li>
+  <li><a href="../modules/Handle.html">Handle</a></li>
+  <li><strong>BitmapFontButton</strong></li>
+  <li><a href="../modules/camera.html">camera</a></li>
+  <li><a href="../modules/cameralayer.html">cameralayer</a></li>
+  <li><a href="../modules/Device.html">Device</a></li>
+  <li><a href="../modules/FPS.html">FPS</a></li>
+  <li><a href="../modules/imageblur.html">imageblur</a></li>
+  <li><a href="../modules/log.html">log</a></li>
+  <li><a href="../modules/object.html">object</a></li>
+  <li><a href="../modules/particledesignerplus.html">particledesignerplus</a></li>
+  <li><a href="../modules/quadtree.html">quadtree</a></li>
+  <li><a href="../modules/touchzone.html">touchzone</a></li>
+  <li><a href="../modules/Vector2D.html">Vector2D</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>BitmapFontButton</code></h1>
+<p>bitmapfontbutton.lua
+ Creates an button with a bitmapFont for labeling</p>
+<p> <strong>REQUIREMENTS:</strong></p>
+
+<p> you have to install Paul Robson&rsquo;s great <strong>fontmanager.lua module</strong>
+ get it here:<br><a href="https://github.com/autismuk/Font-Manager">https://github.com/autismuk/Font-Manager</a><br></p>
+
+<p> Furthermore you will need some bitmap fonts: <a href="http://devilsquid.com/bitmap-fonts-a-step-by-step-guide/">How to create Bitmap Fonts</a></p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Copyright</strong>: DevilSquid, René Aye 2016</li>
+        <li><strong>License</strong>: MIT</li>
+        <li><strong>Author</strong>: René Aye</li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#new">new (options)</a></td>
+	<td class="summary">Constructor function of <strong>bitmapfontbutton</strong> module</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "new"></a>
+    <strong>new (options)</strong>
+    </dt>
+    <dd>
+    Constructor function of <strong>bitmapfontbutton</strong> module
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">options</span>
+        <p> a table with all options for the <strong>bitmapfontbutton</strong></p>
+
+<ul>
+<li><code>text</code>:              the text string to print on the button (<strong>string</strong>)</li>
+<li><code>font</code>:              the font to use (<strong>string</strong>)</li>
+<li><code>fontSize</code>:          the font size (<strong>int</strong>)</li>
+<li><code>width</code>:             width of the button (<strong>int</strong>)</li>
+<li><code>height</code>:            height of the button (<strong>int</strong>)</li>
+<li><code>cornerRadius</code>:      cornerRadius of the background (<strong>int</strong>)</li>
+<li><code>fontColor</code>:         tint color of the bitmap font (<strong>table[1]=r, table[2]=g, table[3]=b</strong>)</li>
+<li><code>fillColor</code>:         fill color of the background (<strong>table[1]=r, table[2]=g, table[3]=b</strong>)</li>
+<li><code>strokeColor</code>:       stroke color of the background (<strong>table[1]=r, table[2]=g, table[3]=b</strong>)</li>
+<li><code>strokeWidth</code>:       stroke width of the background (<strong>table[1]=r, table[2]=g, table[3]=b</strong>)</li>
+<li><code>anchorX</code>:           anchorX value of background and bitmap font (<strong>int</strong>)<br>use anchorX=0 if you want to create a list of left aligned buttons i.e. for a menu</li>
+<li><code>anchorY</code>:           anchorY value of background and bitmap font (<strong>int</strong>)</li>
+<li><code>onRelease</code>:         function for a touch ended event (<strong>function</strong>)</li>
+<li><code>onTap</code>:             function for a touch began event (<strong>function</strong>)</li>
+</ul>
+
+
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+  <span class="keyword">local</span> BMFButton = <span class="global">require</span>( <span class="string">"util.bitmapfontbutton"</span> )
+  <span class="keyword">local</span> <span class="keyword">function</span> startTap()
+      <span class="global">print</span>(<span class="string">"TAP"</span>)
+  <span class="keyword">end</span>
+  <span class="keyword">local</span> button1 = BMFButton:new({text=<span class="string">"my button"</span>, font=<span class="string">"font01"</span>, fontSize=<span class="number">80</span>, anchorX=<span class="number">0</span>, strokeWidth=<span class="number">0</span>, onTap=startTap})
+  sceneGroup:insert(button1)
+  button1.x = <span class="number">50</span>
+  button1.y = _H2 + <span class="number">200</span></pre>
+    </ul>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.3</a></i>
+<i style="float:right;">Last updated 2016-02-26 00:09:14 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

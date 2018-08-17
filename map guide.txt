@@ -1,0 +1,25 @@
+when creating a map you will use single characters for each square of the grid
+A - starting player point. the most right is the only one that will be used. un-used A's will also prevent the NPC's and the player from moving
+
+a - water
+b - grass
+c - rock
+d - tree
+e - bridge
+
+buildings
+f - left side window
+g - right side window
+h - left side door
+i - right side door
+j - centre door
+k - centre door
+l - single building
+inside buildings
+m - floor
+n - counter
+o - counter end l
+p - counter end r
+q - counter ud l
+r - counter ud r
+
